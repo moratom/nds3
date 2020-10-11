@@ -57,6 +57,7 @@ enum class dataType_t
     dataFloat64,      ///< Float, 64 bits
     dataInt8Array,    ///< Array of signed 8 bit integers
     dataUint8Array,   ///< Array of unsigned 8 bit integers
+    dataInt16Array,   ///< Array of signed 16 bit integers
     dataInt32Array,   ///< Array of signed 32 bit integers
     dataFloat64Array, ///< Array of 64 bit floats
     dataString        ///< String

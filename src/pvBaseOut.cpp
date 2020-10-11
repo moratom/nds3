@@ -50,6 +50,9 @@ template void PVBaseOut::write<std::vector<std::int8_t> >(const timespec&, const
 template void PVBaseOut::read<std::vector<std::uint8_t> >(timespec*, std::vector<std::uint8_t>*) const;
 template void PVBaseOut::write<std::vector<std::uint8_t> >(const timespec&, const std::vector<std::uint8_t>&);
 
+template void PVBaseOut::read<std::vector<std::int16_t> >(timespec*, std::vector<std::int16_t>*) const;
+template void PVBaseOut::write<std::vector<std::int16_t> >(const timespec&, const std::vector<std::int16_t>&);
+
 template void PVBaseOut::read<std::vector<std::int32_t> >(timespec*, std::vector<std::int32_t>*) const;
 template void PVBaseOut::write<std::vector<std::int32_t> >(const timespec&, const std::vector<std::int32_t>&);
 

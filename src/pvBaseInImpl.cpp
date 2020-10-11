@@ -74,6 +74,11 @@ void PVBaseInImpl::read(timespec* pTimestamp, std::vector<std::uint8_t>* pValue)
     ::memcpy(pValue->data(), temporaryValue.data(), temporaryValue.size());
 }
 
+void PVBaseInImpl::read(timespec* /* pTimestamp */, std::vector<std::int16_t>* /* pValue */) const
+{
+    throw;
+}
+
 void PVBaseInImpl::read(timespec* /* pTimestamp */, std::vector<std::int32_t>* /* pValue */) const
 {
     throw;
@@ -241,6 +246,7 @@ template void PVBaseInImpl::push<std::int32_t>(const timespec&, const std::int32
 template void PVBaseInImpl::push<double>(const timespec&, const double&);
 template void PVBaseInImpl::push<std::vector<std::int8_t> >(const timespec&, const std::vector<std::int8_t>&);
 template void PVBaseInImpl::push<std::vector<std::uint8_t> >(const timespec&, const std::vector<std::uint8_t>&);
+template void PVBaseInImpl::push<std::vector<std::int16_t> >(const timespec&, const std::vector<std::int16_t>&);
 template void PVBaseInImpl::push<std::vector<std::int32_t> >(const timespec&, const std::vector<std::int32_t>&);
 template void PVBaseInImpl::push<std::vector<double> >(const timespec&, const std::vector<double>&);
 template void PVBaseInImpl::push<std::string >(const timespec&, const std::string&);

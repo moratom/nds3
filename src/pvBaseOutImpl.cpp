@@ -71,6 +71,11 @@ void PVBaseOutImpl::read(timespec* pTimestamp, std::vector<std::uint8_t>* pValue
     ::memcpy(pValue->data(), temporaryValue.data(), temporaryValue.size());
 }
 
+void PVBaseOutImpl::read(timespec* /* pTimestamp */, std::vector<std::int16_t>* /* pValue */) const
+{
+    throw;
+}
+
 void PVBaseOutImpl::read(timespec* /* pTimestamp */, std::vector<std::int32_t>* /* pValue */) const
 {
     throw;
@@ -113,6 +118,11 @@ void PVBaseOutImpl::write(const timespec& timestamp, const std::vector<std::uint
     // This is as ugly as it can get: consider modifying this
     const std::string temporaryString((char*)value.data(), value.size());
     write(timestamp, temporaryString);
+}
+
+void PVBaseOutImpl::write(const timespec& /* pTimestamp */, const std::vector<std::int16_t>& /* value */)
+{
+    throw;
 }
 
 void PVBaseOutImpl::write(const timespec& /* pTimestamp */, const std::vector<std::int32_t>& /* value */)

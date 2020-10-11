@@ -1,6 +1,5 @@
 #ifndef NDSREGISTER_DEVICE_H
 #define NDSREGISTER_DEVICE_H
-
 namespace nds
 {
 
