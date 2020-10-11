@@ -27,7 +27,7 @@ public:
     }
 
     const char *getDriverName() {
-        return m_driverName;
+        return m_driverName.c_str();
     }
 
 protected:
