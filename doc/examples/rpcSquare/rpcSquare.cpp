@@ -54,10 +54,13 @@ RPCSquare::RPCSquare(nds::Factory& factory, const std::string& device,
   nds::Port rootNode(device);
 
   squarePV = nds::PVAction(
-    "Square", std::bind(&RPCSquare::square, this,
-                             std::placeholders::_1, std::placeholders::_2),
-    std::bind(&RPCSquare::init, this, std::placeholders::_1,
-              std::placeholders::_2));
+    "Square", [this](const timespec& timestamp, const std::int32_t& value){
+                this->square(timestamp, value);
+              },
+              [this](timespec* timestamp, std::int32_t* value){
+                this->init(timestamp, value);
+              });
+
   squarePV.setDescription("Square any integer");
   rootNode.addChild(squarePV);
 

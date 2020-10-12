@@ -145,16 +145,16 @@ Channel::Channel(const std::string &name, nds::Node &parentNode)
     ////////////////////////////////////////////////////////////////////////////////
     m_acquisition = nds::DataAcquisition<std::vector<std::int32_t> >("Acquisition",
                                                                      100,
-                                                                     std::bind(&Channel::switchOn, this),
-                                                                     std::bind(&Channel::switchOff, this),
-                                                                     std::bind(&Channel::start, this),
-                                                                     std::bind(&Channel::stop, this),
-                                                                     std::bind(&Channel::recover, this),
-                                                                     std::bind(&Channel::allowChange, this,
-                                                                               std::placeholders::_1,
-                                                                               std::placeholders::_2,
-                                                                               std::placeholders::_3));
-
+                                                                     [this](){this->switchOn();},
+                                                                     [this](){this->switchOff();},
+                                                                     [this](){this->start();},
+                                                                     [this](){this->stop();},
+                                                                     [this](){this->recover();},
+                                                                     [this](nds::state_t currentState, nds::state_t currentGlobalState,
+                                                                            nds::state_t desideredState)
+                                                                           { return this->allowChange(currentState,
+                                                                                                      currentGlobalState,
+                                                                                                      desideredState);});
     // ...and we add it to the root
     ////////////////////////////////////////////////////////////////////////////////
     channel.addChild(m_acquisition);

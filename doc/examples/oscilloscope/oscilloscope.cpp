@@ -151,34 +151,32 @@ Oscilloscope::Oscilloscope(nds::Factory &factory, const std::string &deviceName,
     m_acquisitionSinWave = rootNode.addChild(nds::DataAcquisition<std::vector<std::int32_t> >(
                                                  "SinWave",
                                                  100,
-                                                 std::bind(&Oscilloscope::switchOnSinWave, this),
-                                                 std::bind(&Oscilloscope::switchOffSinWave, this),
-                                                 std::bind(&Oscilloscope::startSinWave, this),
-                                                 std::bind(&Oscilloscope::stopSinWave, this),
-                                                 std::bind(&Oscilloscope::recoverSinWave, this),
-                                                 std::bind(&Oscilloscope::allowChange,
-                                                           this,
-                                                           std::placeholders::_1,
-                                                           std::placeholders::_2,
-                                                           std::placeholders::_3)
-                                                 ));
+                                                 [this](){this->switchOnSinWave();},
+                                                 [this](){this->switchOffSinWave();},
+                                                 [this](){this->startSinWave();},
+                                                 [this](){this->stopSinWave();},
+                                                 [this](){this->recoverSinWave();},
+                                                 [this](nds::state_t currentState, nds::state_t currentGlobalState,
+                                                     nds::state_t desideredState)
+                                                     { return this->allowChange(currentState,
+                                                                                currentGlobalState,
+                                                                                desideredState);}));
 
     // ...and this node is for the square wave
     ////////////////////////////////////////////////////////////////////////////////
     m_acquisitionSquareWave = rootNode.addChild(nds::DataAcquisition<std::vector<std::int32_t> >(
                                                     "SquareWave",
                                                     100,
-                                                    std::bind(&Oscilloscope::switchOnSquareWave, this),
-                                                    std::bind(&Oscilloscope::switchOffSquareWave, this),
-                                                    std::bind(&Oscilloscope::startSquareWave, this),
-                                                    std::bind(&Oscilloscope::stopSquareWave, this),
-                                                    std::bind(&Oscilloscope::recoverSquareWave, this),
-                                                    std::bind(&Oscilloscope::allowChange,
-                                                              this,
-                                                              std::placeholders::_1,
-                                                              std::placeholders::_2,
-                                                              std::placeholders::_3)
-                                                    ));
+                                                    [this](){this->switchOnSquareWave();},
+                                                    [this](){this->switchOffSquareWave();},
+                                                    [this](){this->startSquareWave();},
+                                                    [this](){this->stopSquareWave();},
+                                                    [this](){this->recoverSquareWave();},
+                                                    [this](nds::state_t currentState, nds::state_t currentGlobalState,
+                                                        nds::state_t desideredState)
+                                                        { return this->allowChange(currentState,
+                                                                                   currentGlobalState,
+                                                                                   desideredState);}));
 
     // We have declared all the nodes and PVs in our device: now we register them
     //  with the control system that called this constructor.
