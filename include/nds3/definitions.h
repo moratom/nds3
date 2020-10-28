@@ -60,6 +60,7 @@ enum class dataType_t
     dataInt16Array,   ///< Array of signed 16 bit integers
     dataInt32Array,   ///< Array of signed 32 bit integers
     dataFloat64Array, ///< Array of 64 bit floats
+    dataFloat32Array, ///< Array of 32 bit floats
     dataString        ///< String
 };
 

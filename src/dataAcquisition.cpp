@@ -130,6 +130,7 @@ template class DataAcquisition<std::vector<std::uint8_t> >;
 template class DataAcquisition<std::vector<std::int16_t> >;
 template class DataAcquisition<std::vector<std::int32_t> >;
 template class DataAcquisition<std::vector<double> >;
+template class DataAcquisition<std::vector<float> >;
 template class DataAcquisition<std::string >;
 
 

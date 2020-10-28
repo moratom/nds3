@@ -47,6 +47,7 @@ namespace nds
  *            - std::vector<std::int16_t>
  *            - std::vector<std::int32_t>
  *            - std::vector<double>
+ *            - std::vector<float>
  *            - std::string
  *
  */

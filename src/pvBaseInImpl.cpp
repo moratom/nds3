@@ -89,6 +89,11 @@ void PVBaseInImpl::read(timespec* /* pTimestamp */, std::vector<double>* /* pVal
     throw;
 }
 
+void PVBaseInImpl::read(timespec* /* pTimestamp */, std::vector<float>* /* pValue */) const
+{
+    throw;
+}
+
 void PVBaseInImpl::read(timespec* /* pTimestamp */, std::string* /* pValue */) const
 {
     throw;
@@ -249,6 +254,7 @@ template void PVBaseInImpl::push<std::vector<std::uint8_t> >(const timespec&, co
 template void PVBaseInImpl::push<std::vector<std::int16_t> >(const timespec&, const std::vector<std::int16_t>&);
 template void PVBaseInImpl::push<std::vector<std::int32_t> >(const timespec&, const std::vector<std::int32_t>&);
 template void PVBaseInImpl::push<std::vector<double> >(const timespec&, const std::vector<double>&);
+template void PVBaseInImpl::push<std::vector<float> >(const timespec&, const std::vector<float>&);
 template void PVBaseInImpl::push<std::string >(const timespec&, const std::string&);
 
 }

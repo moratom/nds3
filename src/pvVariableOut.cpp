@@ -67,6 +67,7 @@ template class PVVariableOut<std::vector<std::uint8_t> >;
 template class PVVariableOut<std::vector<std::int16_t> >;
 template class PVVariableOut<std::vector<std::int32_t> >;
 template class PVVariableOut<std::vector<double> >;
+template class PVVariableOut<std::vector<float> >;
 template class PVVariableOut<std::string>;
 
 

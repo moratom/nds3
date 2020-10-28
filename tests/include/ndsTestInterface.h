@@ -49,6 +49,7 @@ public:
     void getPushedVectorUint8(const std::string& pvName, const timespec*& pTime, const std::vector<std::uint8_t>*& pValue);
     void getPushedVectorInt32(const std::string& pvName, const timespec*& pTime, const std::vector<std::int32_t>*& pValue);
     void getPushedVectorDouble(const std::string& pvName, const timespec*& pTime, const std::vector<double>*& pValue);
+    void getPushedVectorFloat(const std::string& pvName, const timespec*& pTime, const std::vector<float>*& pValue);
     void getPushedString(const std::string& pvName, const timespec*& pTime, const std::string*& pValue);
 
 private:
@@ -99,6 +100,7 @@ private:
     std::map<std::string, PushedValues<std::vector<std::uint8_t> > >m_pushedVectorUint8;
     std::map<std::string, PushedValues<std::vector<std::int32_t> > >m_pushedVectorInt32;
     std::map<std::string, PushedValues<std::vector<double> > >m_pushedVectorDouble;
+    std::map<std::string, PushedValues<std::vector<float> > >m_pushedVectorFloat;
     std::map<std::string, PushedValues<std::string> >m_pushedString;
 
     template <typename T>

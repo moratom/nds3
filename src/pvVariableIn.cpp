@@ -68,6 +68,7 @@ template class PVVariableIn<std::vector<std::uint8_t> >;
 template class PVVariableIn<std::vector<std::int16_t> >;
 template class PVVariableIn<std::vector<std::int32_t> >;
 template class PVVariableIn<std::vector<double> >;
+template class PVVariableIn<std::vector<float> >;
 template class PVVariableIn<std::string>;
 
 

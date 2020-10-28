@@ -61,6 +61,7 @@ public:
     virtual void push(const PVBaseImpl& pv, const timespec& timestamp, const std::vector<std::int32_t> & value) = 0;
     virtual void push(const PVBaseImpl& pv, const timespec& timestamp, const std::vector<std::int16_t> & value) = 0;
     virtual void push(const PVBaseImpl& pv, const timespec& timestamp, const std::vector<double> & value) = 0;
+    virtual void push(const PVBaseImpl& pv, const timespec& timestamp, const std::vector<float> & value) = 0;
     virtual void push(const PVBaseImpl& pv, const timespec& timestamp, const std::string & value) = 0;
 };
 

@@ -97,6 +97,7 @@ template class PVVariableInImpl<std::vector<std::uint8_t> >;
 template class PVVariableInImpl<std::vector<std::int16_t> >;
 template class PVVariableInImpl<std::vector<std::int32_t> >;
 template class PVVariableInImpl<std::vector<double> >;
+template class PVVariableInImpl<std::vector<float> >;
 template class PVVariableInImpl<std::string>;
 
 }
